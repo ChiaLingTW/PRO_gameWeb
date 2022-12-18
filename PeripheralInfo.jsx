@@ -78,14 +78,10 @@ class PeripheralInfo extends Component {
                                 <select id="newSpec" name="newSpec">
                                     {/* <option>{this.state.data.peripheralProduct}{this.state.data.peripheralProduct2}</option> */}
                                     <option>請選擇商品規格</option>
-                                    {this.state.newSpec.map((newItem, index) => {
-                                        return (
-                                            <div key={index}>
-                                                <option>{newItem.peripheralProduct}{newItem.peripheralProduct2}</option>
-                                            </div>
-                                        )
-                                    })}
-                                </select>&nbsp;&nbsp;&nbsp;｜&nbsp;&nbsp;&nbsp;
+                                    {/* {this.state.newSpec.map((newItem) => {
+                                        <option>{newItem.peripheralProduct}</option>
+                                    })} */}
+                                </select> &nbsp;&nbsp;&nbsp;｜&nbsp;&nbsp;&nbsp;
                                 <select id="newQty" name="newQty">
                                     <option>請選擇數量</option>
                                     <option>1</option>
