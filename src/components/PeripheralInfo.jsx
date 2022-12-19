@@ -2,31 +2,38 @@ import React, { Component } from 'react';
 import Axios from 'axios';                              // 串連 NodeJS
 import NavBar from "./NavBar";                          // 導欄列
 
-import authHeader from './authHeader';
+import authHeader from './authHeader';                  // 用於會員登入
 
 
 class PeripheralInfo extends Component {
     state = {
         memberUser: [{}],           // 會員
         data: [{}],
+        newSpec: [{}],              // 周邊規格
         photoTest: [{}],            // 周邊圖片
         cartTest: [{ peripheralId: "", peripheralName: "", peripheralQty: "", peripheralPrice: "", peripheralSpec: "", uid: "" }],
+        pid:""
         // cartTest: [{}],
     }
 
     componentDidMount = async () => {
         // 會員登入
-        // let memberResult = await Axios.get("http://localhost:8000/member/memberinfo", {
-        //     header: authHeader(),
-        // });
-        // this.state.memberUser = memberResult.data;
-        // console.log(this.state.memberUser);
+        let memberResult = await Axios.get("http://localhost:8000/member/memberinfo", {
+            headers: authHeader(),
+        });
+        this.state.memberUser = memberResult.data;
+        console.log(this.state.memberUser);
 
+        // 大部分的資料
         var result = await Axios.get(`http://localhost:8000/PeripheralInfo/${this.props.match.params.peripheralId}`);
         this.state.data = result.data;
+
+        // 周邊規格
         var result_2 = await Axios.get(`http://localhost:8000/PeripheralSpec/${this.state.data.peripheralId}`);
         this.state.newSpec = result_2.data;
         console.log(this.state.newSpec);
+
+        // 周邊圖片
         var result_3 = await Axios.get(`http://localhost:8000/PeripheralPic/${this.state.data.peripheralId}`);
         this.state.photoTest = result_3.data;
         // console.log(this.state.photoTest[1].peripheralPhotoGroup);
@@ -38,18 +45,22 @@ class PeripheralInfo extends Component {
 
     cartTestClick = async () => {
         // alert("2022-12-17");        
-        this.state.cartTest[0].peripheralId = this.state.data.peripheralId;  ///// 該周邊編號       
-        this.state.cartTest[0].peripheralName = this.state.data.peripheralName;  ///// 該周邊名稱
-        this.state.cartTest[0].peripheralQty = document.getElementById('newQty').value;  ///// 數量
-        this.state.cartTest[0].peripheralPrice = this.state.data.peripheralPrice;  ///// 價格
-        this.state.cartTest[0].peripheralSpec = document.getElementById('newSpec').value;  ///// 規格
-        this.state.cartTest[0].uid = "123";  ///// 會員編號
-        console.log(this.state.cartTest[0])
+        this.state.cartTest[0].peripheralId = this.state.data.peripheralId;         ///// 該周邊編號       
+        this.state.cartTest[0].peripheralName = this.state.data.peripheralName;     ///// 該周邊名稱
+        this.state.cartTest[0].pid = this.state.pid;                           ///// pid
+        this.state.cartTest[0].peripheralPhoto = this.state.data.peripheralPhotoGroup;  ///// 該周邊圖片
+        this.state.cartTest[0].count = document.getElementById('newQty').value;     ///// 加入數量
+        this.state.cartTest[0].mail = this.state.memberUser[0].mail;                   ///// 會員信箱
+        console.log(this.state.memberUser[0].mail)
         var result = await Axios.post("http://localhost:8000/cartListTest", this.state.cartTest[0]);
         console.log(result);
         this.setState({})
     }
-
+    change=(id)=>{
+    //      
+      this.setState({pid:document.querySelector('select').value})
+      console.log(this.state.pid)
+    }
 
     render() {
         return (
@@ -75,12 +86,17 @@ class PeripheralInfo extends Component {
                             <h6>★★ 全館貨到付款 ★★</h6>
                             <hr />
                             <form action="" method="post">
-                                <select id="newSpec" name="newSpec">
-                                    {/* <option>{this.state.data.peripheralProduct}{this.state.data.peripheralProduct2}</option> */}
+                                <select id="newSpec" name="newSpec" onChange={()=>{this.change()}}>
                                     <option>請選擇商品規格</option>
-                                    {/* {this.state.newSpec.map((newItem) => {
-                                        <option>{newItem.peripheralProduct}</option>
-                                    })} */}
+                                    {/* <option>{this.state.newSpec[0].peripheralProduct}{this.state.newSpec[0].peripheralProduct2}</option> */}
+                                    {/* <option>{this.state.newSpec[1].peripheralProduct}{this.state.newSpec[1].peripheralProduct2}</option> */}
+                                    {this.state.newSpec.map(newItem => 
+                                        // {dataList && dataList.map(item =>(
+                                        //     <Option key={item.id} value={item.value}>{item.value}</Option                                            
+                                        //     ))}
+                                        <option value={newItem.pid} key={newItem.id}>{newItem.peripheralProduct}{newItem.peripheralProduct2}</option>
+                                        // <option>{newItem[0].peripheralProduct}{newItem[0].peripheralProduct2}</option>
+                                    )}
                                 </select> &nbsp;&nbsp;&nbsp;｜&nbsp;&nbsp;&nbsp;
                                 <select id="newQty" name="newQty">
                                     <option>請選擇數量</option>
