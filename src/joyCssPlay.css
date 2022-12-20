@@ -116,12 +116,10 @@
     /* width: 10vmax;
     height: 10vmax; */
     padding: 30px;
-    /* border: 1px solid rgb(170, 170, 170); */
-    /* border-radius: 10px; */
-    background-color: rgb(0, 92, 179);
+    background-color: rgb(3, 121, 225);
     text-align: center;
     align-items: center;
-    transition: 1s;
+    transition: 0.8s;
 }
 
 .homeEnterCard img {
@@ -164,7 +162,8 @@
 }
 
 .hotGameCard a {
-    color: rgb(0, 92, 179);
+    /* color: rgb(0, 92, 179); */
+    color: rgb(3, 121, 225);
     text-decoration: none;
 }
 
@@ -202,7 +201,6 @@
     /* width: 100vmax; */
     /* height: 100vh; */
     overflow: hidden;
-    /* background-color: #5FB8FF; */
     align-items: center;
     position: relative;
 }
@@ -211,7 +209,6 @@
     width: 100%;
     /* height: 100%; */
     object-fit: cover;
-    /* background-color: #28587f; */
 }
 
 @keyframes swing {
@@ -296,8 +293,7 @@
 .homeHotStream:hover {
     /* width: 10vmax;
     height: 10vmax; */
-    /* background-color: rgb(220, 220, 220); */
-    background-color: rgb(0, 92, 179);
+    background-color: rgb(3, 121, 225);
     text-align: center;
     align-items: center;
 }
@@ -445,27 +441,6 @@
     background-color: rgb(0, 92, 179);
 }
 
-.gamePhotoCoverSorll {
-    display: inline-block;
-    position: relative;
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
-    /* border-radius: 50%; */
-    object-fit: cover;
-    object-position: center;
-}
-
-.gamePhotoCoverSorll img {
-    width: auto;
-    height: 100%;
-}
-
-.gamePhotoCoverSorll:hover {
-    border: 3px solid#ffffff;
-    /* margin: 1px solid#ffffff; */
-}
-
 
 /* 遊戲圖片區 gamePhotoGroup */
 .gamePhotoGroup {
@@ -479,7 +454,6 @@
     padding: 10px;
     overflow: hidden;
     justify-content: center;
-    /* background-color: #a9ffb9; */
 }
 
 .gamePhotoA {
@@ -487,13 +461,11 @@
     margin: 0px 5px;
     width: 80px;
     height: 300px;
-    /* background-color: #FF2D95; */
     transition: 1s;
 
 }
 
 .gamePhotoA:hover {
-    /* width: 100%; */
     width: 500px;
     transition: 1s;
 }
@@ -511,7 +483,6 @@
     width: 100%;
     text-align: center;
     align-items: center;
-    /* background-color: rgba(255, 255, 255, 0.3); */
 }
 
 .gamePhotoGroupB h5 {
@@ -613,7 +584,6 @@
     width: 100%;
     overflow: hidden;
     justify-content: center;
-    /* background-color: #a9ffb9; */
 }
 
 .periPhotoA {
@@ -630,15 +600,21 @@
 
 
 /* 實況直播 實況直播 實況直播 實況直播 實況直播 --- 開始 --- */
+
+.liveOnShow{
+    /* justify-content: center; */
+    justify-items: center;
+}
+
 /* 播放清單卷軸樣式 */
 .liveScrollbar {
     display: block;
     /* width: 100%; */
     overflow: auto;
-    height: 60vh;
+    height: 60vmin;
 }
 
-.liveTitle {
+.liveOnTitle {
     width: 100%;
     font-size: 18px;
     overflow: hidden;
@@ -646,14 +622,71 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    color: rgb(0, 41, 80);
+    /* color: rgb(0, 41, 80); */
     text-align: left;
+}
+
+.liveOnTitle:hover {
+    width: 100%;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color: rgb(3, 121, 225);
+    text-align: left;
+}
+
+.liveOnShowItem{
+    text-align: center;
+}
+
+.liveOnShowItem img{
+    width: 100%;
+    border-radius: 10px;
 }
 
 .liveVideoGroup {
     background-image: url(./components/joyImage/background/allBackground.png);
     background-position: center;
     text-align: center;
+}
+
+.liveVideoTitle {
+    width: 100%;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color: rgb(255, 255, 255);
+    text-align: left;
+}
+
+.liveCase {
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    transition: 0.8s;
+}
+
+.liveCase a{
+    text-decoration: none;
+}
+
+.liveCase img{
+width: 100%;
+border-radius: 10px;
+}
+
+.liveCase:hover {
+    border-radius: 10px;
+    background-color: rgb(3, 121, 225);
+    text-align: center;
+    align-items: center;
 }
 
 
