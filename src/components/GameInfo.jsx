@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Axios from 'axios';                              // 串連 NodeJS
 import Tabs from "./tabs";                              // Tab 頁變換效果
 import NavBar from "./NavBar";                          // 導欄列
-
+import authHeader from './authHeader';                  // 用於會員登入
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // 輪播效果
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from 'react-responsive-carousel';   // 輪播效果
 
 // import memberPhoto from './joyImage/userBlack.png';                     // 會員大頭貼圖片
 import { HiThumbUp } from "react-icons/hi";                             // icon 讚
@@ -27,14 +27,17 @@ class GameInfo extends Component {
 
     componentDidMount = async () => {
         // 會員登入
-        // let userResult = await Axios.get("http://localhost:8000/member/memberinfo", {
-        //     header: authHeader(),
-        // });
-        // this.state.memberUser = userResult.data;
-        // console.log(this.state.memberUser);
+        let userResult = await Axios.get("http://localhost:8000/member/memberinfo", {
+            headers: authHeader(),
+        });
+        this.state.memberUser = userResult.data;
+        console.log(this.state.memberUser);
 
+        // 大部分的資料
         var result = await Axios.get(`http://localhost:8000/GameInfo/${this.props.match.params.gameId}`);
         this.state.data = result.data;
+
+        // 評論區
         var result_2 = await Axios.get(`http://localhost:8000/member/${this.state.data.gameId}`);
         this.state.commentTest = result_2.data;
         // console.log(this.state.commentTest);

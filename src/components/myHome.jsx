@@ -8,9 +8,6 @@ import hotGameVideo from './joyVideo/homeHotGame.mp4';                   // 強�
 import LiveHost_1 from './joyImage/background/LiveStreamShow_01.png';     // 統神
 import LiveHost_2 from './joyImage/background/LiveStreamShow_02.png';     // 貝莉莓
 import LiveStreamBG from './joyImage/background/LiveStreamShow_03.png';     // 實況日曆圖
-import hotStream_1 from './joyVideo/hotStream_01.png';     // 精選實況
-import hotStream_2 from './joyVideo/hotStream_02.png';     // 精選實況
-import hotStream_3 from './joyVideo/hotStream_03.png';     // 精選實況
 
 // 最新消息縮圖 / JS效果
 // import newsPhoto from './joyImage/demo600x400_01.jpg';   // 最新消息縮圖
@@ -128,27 +125,47 @@ class myHome extends Component {
                             {/* 精選實況影片 */}
                             <h4 className="p-3" style={{ textAlign: "center" }}>_ _ _ _ _ _ _ _ 精選實況影片 _ _ _ _ _ _ _ _</h4>
                             <div className="d-flex flex-wrap">
-                                <div className="col-4 homeHotStream">
-                                    <img src={hotStream_1} alt="" style={{ width: "100%" }} />
-                                    {/* <video src="https://i.ytimg.com/an_webp/LQbGTfFU8uU/mqdefault_6s.webp?du=3000&sqp=CM3jx5wG&rs=AOn4CLAF0Xv_CU7j8KA7HP45PbSPdaQfgg" autoPlay muted width="100%"></video> */}
-                                    <span className="homeHotStreamTitle">【統神】亞洲退費王，精華八分鐘 就退了五款遊戲</span>
+                                <div className="col-4 liveCase">
+                                    <a href="/LiveStream">
+                                        <img src="https://cdn.discordapp.com/attachments/1054405459672571928/1054464941299605564/liveHost02_1.png" alt="實況影片縮圖" />
+                                        <span className="liveVideoTitle">【貝莉莓】</span>
+                                    </a>
                                 </div>
-                                <div className="col-4 homeHotStream">
-                                    <img src={hotStream_2} alt="" style={{ width: "100%" }} />
-                                    {/* <video src={videoBG} autoPlay muted width="100%"></video> */}
-                                    <span className="homeHotStreamTitle">【統神】嘉航被預示者撞到卡在樹裡</span>
+                                <div className="col-4 liveCase">
+                                    <a href="/LiveStream">
+                                        <img src="https://cdn.discordapp.com/attachments/1054405459672571928/1054464941635141743/liveHost02_2.png" alt="實況影片縮圖" />
+                                        <span className="liveVideoTitle">【貝莉莓】</span>
+                                    </a>
                                 </div>
-                                <div className="col-4 homeHotStream">
-                                    <img src={hotStream_3} alt="" style={{ width: "100%" }} />
-                                    {/* <video src="https://eus-streaming-video-rt-microsoft-com.akamaized.net/d826a00e-86d1-42df-b883-890275ddeb85/0eb92749-6356-4177-95dd-fb89040e_6750.mp4" autoPlay muted width="100%"></video> */}
-                                    <span className="homeHotStreamTitle">【統神】地震！地震~！晨晨：大家都躲到這裡！</span>
+                                <div className="col-4 liveCase">
+                                    <a href="/LiveStream">
+                                        <img src="https://cdn.discordapp.com/attachments/1054405459672571928/1054464942033604709/liveHost02_3.png" alt="實況影片縮圖" />
+                                        <span className="liveVideoTitle">【貝莉莓】</span>
+                                    </a>
+                                </div>
+                                <div className="col-4 liveCase">
+                                    <a href="/LiveStream">
+                                        <img src="https://cdn.discordapp.com/attachments/1054405459672571928/1054465021008150528/liveHost01_1.png" alt="實況影片縮圖" />
+                                        <span className="liveVideoTitle">【統神】亞洲退費王，精華八分鐘 就退了五款遊戲</span>
+                                    </a>
+                                </div>
+                                <div className="col-4 liveCase">
+                                    <a href="/LiveStream">
+                                        <img src="https://cdn.discordapp.com/attachments/1054405459672571928/1054465021410820148/liveHost01_2.png" alt="實況影片縮圖" />
+                                        <span className="liveVideoTitle">【統神】亞洲退費王，精華八分鐘 就退了五款遊戲</span>
+                                    </a>
+                                </div>
+                                <div className="col-4 liveCase">
+                                    <a href="/LiveStream">
+                                        <img src="https://cdn.discordapp.com/attachments/1054405459672571928/1054465021826048050/liveHost01_3.png" alt="實況影片縮圖" />
+                                        <span className="liveVideoTitle">【統神】亞洲退費王，精華八分鐘 就退了五款遊戲</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     {/* 大標：：最新消息 NEWS */}
                     <h1 className="p-3" style={{ textAlign: "center" }}>最新消息 NEWS</h1>
-                    {/* <div className="col-12 homeNewsCardArea" style={{ background: `url(${enterBG})` }}> */}
                     <div className="col-12 homeNewsCardArea">
                         <div className="d-flex flex-wrap p-3" >
                             <Swiper
@@ -195,10 +212,10 @@ class myHome extends Component {
                         <h1 style={{ textAlign: "center" }}>合作夥伴 Partners</h1>
                         <br /><br /><br /><br />
                         <marquee><img src={logo_01} alt="合作夥伴" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <img src={logo_02} alt="合作夥伴" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <img src={logo_03} alt="合作夥伴" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <img src={logo_04} alt="合作夥伴" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <img src={logo_05} alt="合作夥伴" /></marquee>
+                            <img src={logo_02} alt="合作夥伴" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src={logo_03} alt="合作夥伴" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src={logo_04} alt="合作夥伴" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src={logo_05} alt="合作夥伴" /></marquee>
                     </div>
                 </div>
             </React.Fragment >
