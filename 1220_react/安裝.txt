@@ -1,0 +1,14 @@
+npm install -g
+npm install create-react-app
+npm install bootstrap@5
+npm install react-router-dom@5
+npm install gsap 後來沒用，可不安裝
+npm install swiper
+npm install react-responsive-carousel
+npm install react-webcam
+npm start
+
+npm install sweetalert
+
+-----
+npm start
